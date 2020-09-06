@@ -18,7 +18,7 @@ store.dispatch(addVerbForm({ spa: 'voy', rus: 'иду' }))
 store.dispatch(setTextFilter('д'))
 
 setTimeout( () => {
-    store.dispatch( setTextFilter( 'ю' ) )
+    store.dispatch( setTextFilter( 'а' ) )
 }, 3000 )
 
 const state = store.getState()

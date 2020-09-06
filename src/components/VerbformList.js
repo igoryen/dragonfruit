@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import VerbformListItem from './VerbformListItem'
+import selectVerbforms from '../selectors/verbforms'
 
 const VerbformList = (props) => (
     <div>
@@ -15,8 +16,7 @@ const VerbformList = (props) => (
 
 const mapStateToProps = (state) => {
     return {
-        verbforms: state.verbforms,
-        filters: state.filters
+        verbforms: selectVerbforms(state.verbforms, state.filters)
     }
 }
 
