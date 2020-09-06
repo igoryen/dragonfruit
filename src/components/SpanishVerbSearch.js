@@ -1,19 +1,12 @@
 import React from 'react';
+import VerbformList from './VerbformList';
 
 
 export class SpanishVerbSearch extends React.Component {
     render() {
         return (
             <div>
-                <h3>Spanish Verb Search</h3>
-                <div className="input-group">
-                    <div className="input-group__item">
-                        <input
-                            type="text"
-                            className="text-input"
-                            placeholder="Search verb forms" />
-                    </div>
-                </div>
+                <VerbformList />
             </div>
         )
     }
