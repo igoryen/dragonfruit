@@ -5,13 +5,13 @@ import { connect } from 'react-redux'
 const VerbformList = (props) => (
     <div>
         <h1>List of verb-forms</h1>
-        {props.name}
+        {props.verbforms.length}
     </div>
 )
 
 const ConnectedVerbformList = connect( (state) => {
     return {
-        name: 'Igor'
+        verbforms: state.verbforms
     }
 } )(VerbformList)
 
