@@ -1,17 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { Provider } from 'react-redux'
 import configureStore from './store/configureStore'
 import { addVerbForm } from './actions/verbforms'
 import { setTextFilter } from './actions/filters'
 import getVisibleVerbforms from './selectors/verbforms'
 import './index.css';
-import SpanishVerbSearch from './components/SpanishVerbSearch'
 import * as serviceWorker from './serviceWorker';
-import { Header } from './components/Header'
-import AddSpanishVerb from './components/AddSpanishVerb';
-import EditSpanishVerb from './components/EditSpanishVerb';
-import { NotFoundPage } from './components/NotFoundPage';
+
+import AppRouter from './routers/AppRouter';
 
 
 const store = configureStore()
@@ -24,22 +21,14 @@ const state = store.getState()
 const visibleVerbforms = getVisibleVerbforms(state.verbforms, state.filters)
 console.log('visibleVerbforms', visibleVerbforms)
 
-const routes = (
-    <BrowserRouter>
-        <div>
-            <Header />
-            <Switch>
-                <Route path="/" component={SpanishVerbSearch} exact={true} />
-                <Route path="/add-verb" component={AddSpanishVerb} />
-                <Route path="/edit-verb/:id" component={EditSpanishVerb} />
-                <Route component={NotFoundPage} />
-            </Switch>
-        </div>
-    </BrowserRouter>
+const jsx = (
+    <Provider store={store}>
+        <AppRouter />
+    </Provider>
 );
 
 
-ReactDOM.render(routes, document.getElementById('root')
+ReactDOM.render(jsx, document.getElementById('root')
 );
 
 // If you want your app to work offline and load faster, you can change
