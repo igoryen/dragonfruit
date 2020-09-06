@@ -1,11 +1,13 @@
 import React from 'react'
 
-export class EditSpanishVerb extends React.Component {
-    render() {
-        return (
-            <div>
-                <h3>Edit Spanish Verb</h3>
-            </div>
-        )
-    }
+const EditSpanishVerb = (props) => {
+    console.log(props)
+    return (
+        <div>
+            <h3>Edit Spanish Verb</h3>
+            <div>Editing SVF with ID of {props.match.params.id}</div>
+        </div>
+    )
 }
+
+export default EditSpanishVerb
