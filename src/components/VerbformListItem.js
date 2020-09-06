@@ -2,7 +2,7 @@ import React from 'react'
 
 const VerbformListItem = ( { id, spa, rus } ) => (
     <div>
-        <span>{spa}</span> - <spa>{rus}</spa>
+        <span>{rus}</span> - <span>{spa}</span>
     </div>
 )
 
