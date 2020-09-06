@@ -17,6 +17,10 @@ store.dispatch(addVerbForm({ spa: 'caigo', rus: 'падаю' }))
 store.dispatch(addVerbForm({ spa: 'voy', rus: 'иду' }))
 store.dispatch(setTextFilter('д'))
 
+setTimeout( () => {
+    store.dispatch( setTextFilter( 'ю' ) )
+}, 3000 )
+
 const state = store.getState()
 const visibleVerbforms = getVisibleVerbforms(state.verbforms, state.filters)
 console.log('visibleVerbforms', visibleVerbforms)
