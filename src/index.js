@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import './index.css';
 import SpanishVerbSearch from './components/SpanishVerbSearch'
 import * as serviceWorker from './serviceWorker';
+import { Header } from './components/Header'
 import { AddSpanishVerb } from './components/AddSpanishVerb';
 import { EditSpanishVerb } from './components/EditSpanishVerb';
 import { NotFoundPage } from './components/NotFoundPage';
@@ -11,12 +12,15 @@ import { NotFoundPage } from './components/NotFoundPage';
 
 const routes = (
     <BrowserRouter>
-        <Switch>
-            <Route path="/" component={SpanishVerbSearch} exact={true}/>
-            <Route path="/add-verb" component={AddSpanishVerb} />
-            <Route path="/edit-verb" component={EditSpanishVerb} />
-            <Route component={NotFoundPage} />
-        </Switch>
+        <div>
+            <Header />    
+            <Switch>
+                <Route path="/" component={SpanishVerbSearch} exact={true}/>
+                <Route path="/add-verb" component={AddSpanishVerb} />
+                <Route path="/edit-verb" component={EditSpanishVerb} />
+                <Route component={NotFoundPage} />
+            </Switch>
+        </div>
     </BrowserRouter>
 );
 
