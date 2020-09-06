@@ -9,10 +9,10 @@ const VerbformList = (props) => (
     </div>
 )
 
-const ConnectedVerbformList = connect( (state) => {
+const mapStateToProps = (state) => {
     return {
         verbforms: state.verbforms
     }
-} )(VerbformList)
+}
 
-export default ConnectedVerbformList
+export default connect(mapStateToProps)(VerbformList)
