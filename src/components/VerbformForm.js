@@ -1,10 +1,12 @@
 import React from 'react'
+import moment from 'moment'
 
 export default class VerbformForm extends React.Component {
 
     state = {
         spa: '',
-        rus: ''
+        rus: '',
+        createdAt: moment()
     }
 
     onSpaChange = (e) => {
@@ -20,10 +22,26 @@ export default class VerbformForm extends React.Component {
         }
     }
 
+    onSubmit = (e) => {
+        e.preventDefault()
+        if(!this.state.spa || !this.state.rus) {
+            this.setState( () => ({ error: 'Please provide both Spa and Rus.' }) )
+        } else {
+            this.setState( () => ({ error: '' }) )
+            this.props.onSubmit({
+                spa: this.state.spa,
+                rus: this.state.rus,
+                createdAt: this.state.createdAt.valueOf()
+            })
+            console.log('submitted and saved with date ' + this.props.createdAt) // .format('YYYY-MM-DD (dd) hh:mm:ss')
+        }
+    }
+
     render() {
         return (
             <div>
-                <form>
+                {this.state.error && <p>{this.state.error}</p>}
+                <form onSubmit={this.onSubmit}>
                     <input
                         type="text"
                         placeholder="Spanish verb-form"

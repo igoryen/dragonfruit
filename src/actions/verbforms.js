@@ -6,6 +6,7 @@ export const addVerbform = (
     {
         spa = '',
         rus = '',
+        createdAt = 0
     } = {}
 ) => (
     {
@@ -13,7 +14,8 @@ export const addVerbform = (
         verbform: {
             id: uuidv4(),
             spa,
-            rus
+            rus,
+            createdAt
         }
     }
 )
