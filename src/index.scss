@@ -12,6 +12,10 @@ code {
     monospace;
 }
 
+$weight-bold: bold;
+$no-underline: none;
+
 .is-active {
-    font-weight: bold;
+    font-weight: $weight-bold;
+    text-decoration: $no-underline;
 }

@@ -4,7 +4,7 @@ import { Provider } from 'react-redux'
 import configureStore from './store/configureStore'
 import { addVerbform } from './actions/verbforms'
 import getVisibleVerbforms from './selectors/verbforms'
-import './index.css';
+import './index.scss';
 import * as serviceWorker from './serviceWorker';
 
 import AppRouter from './routers/AppRouter';
