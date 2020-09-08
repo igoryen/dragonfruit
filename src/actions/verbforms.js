@@ -19,7 +19,7 @@ export const addVerbForm = (
 )
 
 // remove verb form
-export const removeVerbForm = ({ id } = {}) => (
+export const removeVerbform = ({ id } = {}) => (
     {
         type: 'REMOVE_VERB_FORM',
         id
