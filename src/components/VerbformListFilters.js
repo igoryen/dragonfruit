@@ -1,9 +1,16 @@
 import React from 'react'
+import { connect } from 'react-redux'
 
-const VerbformListFilters = () => (
+const VerbformListFilters = (props) => (
     <div>
-        <input type="text" />
+        <input type="text" value={props.filters.text}/>
     </div>
 )
 
-export default VerbformListFilters
+const mapStateToProps = (state) => {
+    return {
+        filters: state.filters
+    }
+}
+
+export default connect(mapStateToProps)(VerbformListFilters)
