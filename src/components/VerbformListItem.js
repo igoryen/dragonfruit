@@ -1,11 +1,14 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux'
 import { removeVerbform } from '../actions/verbforms'
 
 
 const VerbformListItem = ( { dispatch, id, spa, rus, createdAt } ) => (
     <div>
-        <span>{rus}</span> - <span>{spa}</span>
+        <Link to={`/edit-verb/${id}`}>
+            <span>{rus}</span> - <span>{spa}</span>
+        </Link>
         <button onClick={ () => {
             dispatch(removeVerbform({id}))
         }}>Remove</button>
