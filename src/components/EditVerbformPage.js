@@ -1,6 +1,6 @@
 import React from 'react'
 
-const EditSpanishVerb = (props) => {
+const EditVerbformPage = (props) => {
     console.log(props)
     return (
         <div>
@@ -10,4 +10,4 @@ const EditSpanishVerb = (props) => {
     )
 }
 
-export default EditSpanishVerb
+export default EditVerbformPage
