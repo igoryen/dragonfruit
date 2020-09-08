@@ -2,7 +2,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 // add verb form
 
-export const addVerbForm = (
+export const addVerbform = (
     {
         spa = '',
         rus = '',
