@@ -2,7 +2,7 @@
 
 const filtersReducerDefaultState = {
     text: '',
-    sortBy: 'spa'
+    sortBy: 'rus'
 }
 
 export default ( state = filtersReducerDefaultState, action ) => {
@@ -12,7 +12,7 @@ export default ( state = filtersReducerDefaultState, action ) => {
                 ...state,
                 text: action.text
             }
-        case 'SORT_BY SPANISH':
+        case 'SORT_BY_SPANISH':
             return {
                 ...state,
                 sortBy: 'spa'

@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { setTextFilter } from '../actions/filters'
+import { setTextFilter, sortByRussian, sortBySpanish } from '../actions/filters'
 
 const VerbformListFilters = (props) => (
     <div>
@@ -11,6 +11,19 @@ const VerbformListFilters = (props) => (
                 props.dispatch( setTextFilter(e.target.value) )
             }}
         />
+        <select
+            value={props.filters.sortBy}
+            onChange={ (e) => {
+                if (e.target.value === 'rus') {
+                    props.dispatch( sortByRussian() )
+                } else if (e.target.value === 'spa') {
+                    props.dispatch( sortBySpanish() )
+                }
+            }}
+        >
+            <option value="rus">Russian</option>
+            <option value="spa">Spanish</option>
+        </select>
     </div>
 )
 

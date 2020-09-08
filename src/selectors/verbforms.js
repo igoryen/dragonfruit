@@ -2,17 +2,21 @@
 
 export default (verbforms, { text, sortBy }) => {
     return verbforms.filter( (verbform) => {
-        const textMatch = verbform.rus.toLowerCase().includes(text.toLowerCase())
+        console.log('sortBy', sortBy)
+        let textMatch = ''
+        if (sortBy === 'rus') {
+            textMatch = verbform.rus.toLowerCase().includes(text.toLowerCase())
+        } else if (sortBy === 'spa') {
+            textMatch = verbform.spa.toLowerCase().includes(text.toLowerCase())
+        }
 
         return textMatch
+    }).sort( (a, b) => {
+        if (sortBy === 'rus') {
+            return a.rus < b.rus ? -1 : 1
+        } else if (sortBy === 'spa') {
+            return a.spa < b.spa ? -1 : 1
+        }
     })
 }
-
-// }).sort( (a, b) => {
-//     if (sortBy === 'rus') {
-//         return a.rus < b.rus ? 1 : -1
-//     } else if (sortBy === 'spa') {
-//         return a.spa < b.spa ? 1 : -1
-//     }
-// })
 

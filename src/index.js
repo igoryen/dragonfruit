@@ -13,7 +13,6 @@ import AppRouter from './routers/AppRouter';
 
 const store = configureStore()
 
-store.dispatch(addVerbform({ spa: 'caigo', rus: 'падаю' }))
 store.dispatch(addVerbform({ spa: 'voy', rus: 'иду' }))
 store.dispatch(addVerbform({ spa: 'pongo', rus: 'кладу'}))
 store.dispatch(addVerbform({ spa: 'pones', rus: 'кладёшь'}))
