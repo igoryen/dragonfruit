@@ -1,12 +1,20 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import VerbformForm from './VerbformForm'
+import { editVerbform } from '../actions/verbforms'
 
 const EditVerbformPage = (props) => {
-    console.log(props)
+
     return (
         <div>
-            <h3>Edit Spanish Verb</h3>
-            <div>Editing verb-form with ID of {props.match.params.id}</div>
+            <VerbformForm
+                verbform={props.verbform}
+                onSubmit={(verbform) => {
+                    props.dispatch( editVerbform(props.verbform.id, verbform) )
+                    props.history.push('/')
+                    console.log('updated', verbform)
+                }}
+            />
         </div>
     )
 }

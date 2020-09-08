@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux'
 import configureStore from './store/configureStore'
 import { addVerbform } from './actions/verbforms'
-import { setTextFilter } from './actions/filters'
 import getVisibleVerbforms from './selectors/verbforms'
 import './index.css';
 import * as serviceWorker from './serviceWorker';
@@ -13,7 +12,7 @@ import AppRouter from './routers/AppRouter';
 
 const store = configureStore()
 
-store.dispatch(addVerbform({ spa: 'voy', rus: 'иду' }))
+store.dispatch(addVerbform({ spa: 'voy', rus: 'иду', createdAt: 1599590275939 }))
 // store.dispatch(addVerbform({ spa: 'pongo', rus: 'кладу'}))
 // store.dispatch(addVerbform({ spa: 'pones', rus: 'кладёшь'}))
 // store.dispatch(addVerbform({ spa: 'pone', rus: 'кладёт'}))

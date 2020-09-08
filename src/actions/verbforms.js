@@ -29,7 +29,7 @@ export const removeVerbform = ({ id } = {}) => (
 )
 
 // edit verb form
-export const editVerbForm = (id, updates) => (
+export const editVerbform = (id, updates) => (
     {
         type: 'EDIT_VERB_FORM',
         id,

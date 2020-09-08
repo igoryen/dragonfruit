@@ -3,10 +3,13 @@ import moment from 'moment'
 
 export default class VerbformForm extends React.Component {
 
-    state = {
-        spa: '',
-        rus: '',
-        createdAt: moment()
+    constructor(props) {
+        super(props)
+        this.state = {
+            spa: props.verbform ? props.verbform.spa : '',
+            rus: props.verbform ? props.verbform.rus : '',
+            createdAt: props.verbform ? moment(props.verbform.createdAt) : moment()
+        }
     }
 
     onSpaChange = (e) => {
