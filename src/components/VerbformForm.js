@@ -9,11 +9,15 @@ export default class VerbformForm extends React.Component {
 
     onSpaChange = (e) => {
         const spa = e.target.value
-        this.setState( () => ({ spa }) )
+        if( !spa || spa.match(/^[A-Za-záéíóúýÁÉÍÓÚÝñÑüÜ -]+$/)) {
+            this.setState( () => ({ spa }) )
+        }
     }
     onRusChange = (e) => {
         const rus = e.target.value
-        this.setState( () => ({ rus }) )
+        if( !rus || rus.match(/^[А-Яа-яёЁ -]+$/)) {
+            this.setState( () => ({ rus }) )
+        }
     }
 
     render() {
