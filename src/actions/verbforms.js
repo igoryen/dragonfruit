@@ -47,3 +47,26 @@ export const editVerbform = (id, updates) => (
     }
 )
 
+// set verb forms
+export const setVerbforms = (verbforms) => (
+    {
+        type: 'SET_VERB_FORMS',
+        verbforms
+    }
+)
+
+export const startSetVerbforms = () => {
+    return (dispatch) => {
+        return database.ref('verbforms').once('value').then((snapshot) => {
+            const verbforms = []
+
+            snapshot.forEach((childSnapshot) => {
+                verbforms.push({
+                    id: childSnapshot.key,
+                    ...childSnapshot.val()
+                })
+            })
+            dispatch(setVerbforms(verbforms))
+        })
+    }
+}

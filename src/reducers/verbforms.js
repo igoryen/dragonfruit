@@ -22,7 +22,8 @@ export default ( state = verbFormsReducerDefaultState, action ) => {
                     return verbform
                 }
             })
-        
+        case 'SET_VERB_FORMS':
+            return action.verbforms
         default:
             return state
     }
