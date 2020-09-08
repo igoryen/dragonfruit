@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import VerbformForm from './VerbformForm'
-import { editVerbform } from '../actions/verbforms'
+import { editVerbform, removeVerbform } from '../actions/verbforms'
 
 const EditVerbformPage = (props) => {
 
@@ -15,6 +15,10 @@ const EditVerbformPage = (props) => {
                     console.log('updated', verbform)
                 }}
             />
+            <button onClick={() => {
+                props.dispatch( removeVerbform({ id: props.verbform.id }) )
+                props.history.push('/')
+            }}>Remove</button>
         </div>
     )
 }
