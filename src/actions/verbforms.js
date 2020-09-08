@@ -1,24 +1,34 @@
 import { v4 as uuidv4 } from 'uuid';
+import database from '../firebase/firebase'
 
 // add verb form
 
-export const addVerbform = (
-    {
-        spa = '',
-        rus = '',
-        createdAt = 0
-    } = {}
-) => (
+export const addVerbform = (verbform) => (
     {
         type: 'ADD_VERB_FORM',
-        verbform: {
-            id: uuidv4(),
-            spa,
-            rus,
-            createdAt
-        }
+        verbform
     }
 )
+
+export const startAddVerbform = (verbformData = {}) => {
+    return (dispatch) => {
+        const {
+            spa = '',
+            rus = '',
+            createdAt = 0
+        } = verbformData
+        const verbform = { spa, rus, createdAt }
+
+        database.ref('verbforms').push(verbform).then( (ref) => {
+            dispatch( addVerbform(
+                {
+                    id: ref.key,
+                    ...verbform
+                }
+            ))
+        })
+    }
+}
 
 // remove verb form
 export const removeVerbform = ({ id } = {}) => (

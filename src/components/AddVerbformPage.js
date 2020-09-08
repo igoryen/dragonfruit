@@ -1,21 +1,27 @@
 import React from 'react'
 import VerbformForm from './VerbformForm'
 import { connect } from 'react-redux'
-import { addVerbform } from '../actions/verbforms'
+import { startAddVerbform } from '../actions/verbforms'
 
-const AddVerbformPage = (props) => {
-    console.log()
-    return (
-        <div>
-            <h3>Add a Spanish verb</h3>
-            <VerbformForm
-                onSubmit={ ( verbform ) => {
-                    props.dispatch( addVerbform( verbform ) )
-                    props.history.push('/')
-                } }
-            />
-        </div>
-    )
+export class AddVerbformPage extends React.Component {
+    onSubmit = (verbform) => {
+        this.props.startAddVerbform( verbform )
+        this.props.history.push('/')
+    }
+    render() {
+        return (
+            <div>
+                <h3>Add a Spanish verb</h3>
+                <VerbformForm
+                    onSubmit={this.onSubmit}
+                />
+            </div>
+        )
+    }
 }
 
-export default connect()(AddVerbformPage);
+const mapDispatchToProps = (dispatch) => ({
+    startAddVerbform: (verbform) => dispatch(startAddVerbform(verbform))
+})
+
+export default connect(undefined, mapDispatchToProps)(AddVerbformPage);
