@@ -11,7 +11,9 @@ export const addVerbform = (verbform) => (
 )
 
 export const startAddVerbform = (verbformData = {}) => {
-    return (dispatch) => {
+    return (dispatch, getState) => {
+        const uid = getState().auth.uid
+        console.log("uid", uid)
         const {
             spa = '',
             rus = '',
@@ -19,7 +21,7 @@ export const startAddVerbform = (verbformData = {}) => {
         } = verbformData
         const verbform = { spa, rus, createdAt }
 
-        database.ref('verbforms').push(verbform).then( (ref) => {
+        return database.ref(`users/${uid}/verbforms`).push(verbform).then( (ref) => {
             dispatch( addVerbform(
                 {
                     id: ref.key,
@@ -56,8 +58,10 @@ export const setVerbforms = (verbforms) => (
 )
 
 export const startSetVerbforms = () => {
-    return (dispatch) => {
-        return database.ref('verbforms').once('value').then((snapshot) => {
+    return (dispatch, getState) => {
+        const uid = getState().auth.uid
+        console.log("uid", uid)
+        return database.ref(`users/${uid}/verbforms`).once('value').then((snapshot) => {
             const verbforms = []
 
             snapshot.forEach((childSnapshot) => {
@@ -72,9 +76,10 @@ export const startSetVerbforms = () => {
 }
 
 export const startRemoveVerbform = ({id} = {}) => {
-    return(dispatch) => {
+    return(dispatch, getState) => {
+        const uid = getState().auth.uid;
         return database
-            .ref(`verbforms/${id}`)
+            .ref(`users/${uid}/verbforms/${id}`)
             .remove()
             .then(() => {
                 dispatch(removeVerbform({id}))
@@ -83,9 +88,10 @@ export const startRemoveVerbform = ({id} = {}) => {
 }
 
 export const startEditVerbform = (id, updates) => {
-    return (dispatch) => {
+    return (dispatch, getState) => {
+        const uid = getState().auth.uid;
         return database
-            .ref(`verbforms/${id}`)
+            .ref(`users/${uid}/verbforms/${id}`)
             .update(updates)
             .then(() =>{
                 dispatch(editVerbform(id, updates))
