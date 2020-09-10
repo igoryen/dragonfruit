@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux'
 import configureStore from './store/configureStore'
 import { startSetVerbforms } from './actions/verbforms'
+import { login, logout } from './actions/auth'
 import './index.scss';
 import * as serviceWorker from './serviceWorker';
 import AppRouter, { history } from './routers/AppRouter';
@@ -30,6 +31,7 @@ ReactDOM.render(<p>Loading...</p>, document.getElementById('root'))
 
 firebase.auth().onAuthStateChanged((user) => {
     if (user) {
+        store.dispatch(login(user.uid))
         store.dispatch(startSetVerbforms()).then(() => {
             renderApp()
             if(history.location.pathname === '/') {
@@ -37,6 +39,7 @@ firebase.auth().onAuthStateChanged((user) => {
             }
         });
     } else {
+        store.dispatch(logout())
         renderApp()
         history.push('/')
     }
