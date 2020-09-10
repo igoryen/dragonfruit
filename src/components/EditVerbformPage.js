@@ -1,12 +1,12 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import VerbformForm from './VerbformForm'
-import { editVerbform, startRemoveVerbform } from '../actions/verbforms'
+import { startEditVerbform, startRemoveVerbform } from '../actions/verbforms'
 
 export class EditVerbformPage extends React.Component{
 
     onSubmit = (verbform) => {
-        this.props.editVerbform(this.props.verbform.id, verbform)
+        this.props.startEditVerbform(this.props.verbform.id, verbform)
         this.props.history.push('/')
     }
 
@@ -35,7 +35,7 @@ const mapStateToProps = (state, props) => {
 }
 
 const mapDispatchToProps = (dispatch, props) => ({
-    editVerbform: (id, verbform) => dispatch(editVerbform(id, verbform)),
+    startEditVerbform: (id, verbform) => dispatch(startEditVerbform(id, verbform)),
     startRemoveVerbform: (data) => dispatch(startRemoveVerbform(data))
 })
 

@@ -82,3 +82,14 @@ export const startRemoveVerbform = ({id} = {}) => {
     }
 }
 
+export const startEditVerbform = (id, updates) => {
+    return (dispatch) => {
+        return database
+            .ref(`verbforms/${id}`)
+            .update(updates)
+            .then(() =>{
+                dispatch(editVerbform(id, updates))
+            })
+    }
+}
+
