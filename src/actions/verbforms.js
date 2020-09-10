@@ -70,3 +70,15 @@ export const startSetVerbforms = () => {
         })
     }
 }
+
+export const startRemoveVerbform = ({id} = {}) => {
+    return(dispatch) => {
+        return database
+            .ref(`verbforms/${id}`)
+            .remove()
+            .then(() => {
+                dispatch(removeVerbform({id}))
+            })
+    }
+}
+
