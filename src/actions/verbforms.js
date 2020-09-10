@@ -13,7 +13,7 @@ export const addVerbform = (verbform) => (
 export const startAddVerbform = (verbformData = {}) => {
     return (dispatch, getState) => {
         const uid = getState().auth.uid
-        console.log("uid", uid)
+        // console.log("uid", uid)
         const {
             spa = '',
             rus = '',
@@ -60,7 +60,7 @@ export const setVerbforms = (verbforms) => (
 export const startSetVerbforms = () => {
     return (dispatch, getState) => {
         const uid = getState().auth.uid
-        console.log("uid", uid)
+        // console.log("uid", uid)
         return database.ref(`users/${uid}/verbforms`).once('value').then((snapshot) => {
             const verbforms = []
 

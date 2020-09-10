@@ -2,7 +2,7 @@
 
 export default (verbforms, { text, sortBy }) => {
     return verbforms.filter( (verbform) => {
-        console.log('sortBy', sortBy)
+        // console.log('sortBy', sortBy)
         let textMatch = ''
         if (sortBy === 'rus') {
             textMatch = verbform.rus.toLowerCase().includes(text.toLowerCase())

@@ -36,7 +36,7 @@ export default class VerbformForm extends React.Component {
                 rus: this.state.rus,
                 createdAt: this.state.createdAt.valueOf()
             })
-            console.log('submitted and saved with date ' + this.props.createdAt) // .format('YYYY-MM-DD (dd) hh:mm:ss')
+            // console.log('submitted and saved with date ' + this.props.createdAt.value) // .format('YYYY-MM-DD (dd) hh:mm:ss')
         }
     }
 
