@@ -4,10 +4,11 @@ import { Provider } from 'react-redux'
 import configureStore from './store/configureStore'
 import { startSetVerbforms } from './actions/verbforms'
 import { login, logout } from './actions/auth'
-import './index.scss';
 import * as serviceWorker from './serviceWorker';
 import AppRouter, { history } from './routers/AppRouter';
 import { firebase } from './firebase/firebase';
+import 'reset-css'
+import './styles/styles.scss'
 
 const store = configureStore()
 
