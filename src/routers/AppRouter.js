@@ -1,6 +1,6 @@
 import React from 'react'
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import { Header } from '../components/Header'
+import Header from '../components/Header'
 import SpanishVerbSearch from '../components/SpanishVerbSearch'
 import AddVerbformPage from '../components/AddVerbformPage';
 import EditVerbformPage from '../components/EditVerbformPage';
