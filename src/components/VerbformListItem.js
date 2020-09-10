@@ -7,7 +7,7 @@ const VerbformListItem = ( { id, spa, rus, createdAt } ) => (
         <div>
             <span className="list-item__lang1">{rus}</span> - <span className="list-item__lang2">{spa}</span>
         </div>
-        <span className="list-item__created-at">{moment(createdAt).format('YYYY-DD-MM hh:mm:ss')}</span>
+        <span className="list-item__created-at">{moment(createdAt).format('YYYY-MM-DD HH:mm:ss')}</span>
     </Link>
 )
 

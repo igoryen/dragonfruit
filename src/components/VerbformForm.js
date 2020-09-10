@@ -14,13 +14,13 @@ export default class VerbformForm extends React.Component {
 
     onSpaChange = (e) => {
         const spa = e.target.value
-        if( !spa || spa.match(/^[A-Za-záéíóúýÁÉÍÓÚÝñÑüÜ -]+$/)) {
+        if( !spa || spa.match(/^[A-Za-záéíóúýÁÉÍÓÚÝñÑüÜ -.,;]+$/)) {
             this.setState( () => ({ spa }) )
         }
     }
     onRusChange = (e) => {
         const rus = e.target.value
-        if( !rus || rus.match(/^[А-Яа-яёЁ -]+$/)) {
+        if( !rus || rus.match(/^[А-Яа-яёЁ -.,;]+$/)) {
             this.setState( () => ({ rus }) )
         }
     }
@@ -46,18 +46,18 @@ export default class VerbformForm extends React.Component {
                 {this.state.error && <p className="form__error">{this.state.error}</p>}
                 <input
                     type="text"
-                    placeholder="Spanish verb-form"
-                    autoFocus
-                    className="text-input"
-                    value={this.state.spa}
-                    onChange={this.onSpaChange}
-                />
-                <input
-                    type="text"
                     placeholder="Russian verb-form"
+                    autoFocus
                     className="text-input"
                     value={this.state.rus}
                     onChange={this.onRusChange}
+                />
+                <input
+                    type="text"
+                    placeholder="Spanish verb-form"
+                    className="text-input"
+                    value={this.state.spa}
+                    onChange={this.onSpaChange}
                 />
                 <button className="button">Add verb-form</button>
             </form>

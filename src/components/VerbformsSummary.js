@@ -12,7 +12,7 @@ export const VerbformsSummary = ({ verbformCount, verbformsTotal }) => {
             <div className="content-container">
                 <h1 className="page-header__title">Viewing <span>{verbformCount}</span> {verbformWord}</h1>
                 <div className="page-header__actions">
-                    <Link className="button" to="/add-verb" autoFocus>Add Verb</Link>
+                    <Link className="button" to="/add-verb">Add Verb</Link>
                 </div>
             </div>
         </div>
