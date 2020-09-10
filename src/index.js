@@ -7,6 +7,7 @@ import { login, logout } from './actions/auth'
 import * as serviceWorker from './serviceWorker';
 import AppRouter, { history } from './routers/AppRouter';
 import { firebase } from './firebase/firebase';
+import LoadingPage from './components/LoadingPage';
 import 'reset-css'
 import './styles/styles.scss'
 
@@ -27,7 +28,7 @@ const renderApp = () => {
     }
 }
 
-ReactDOM.render(<p>Loading...</p>, document.getElementById('root'))
+ReactDOM.render(<LoadingPage />, document.getElementById('root'))
 
 
 firebase.auth().onAuthStateChanged((user) => {
