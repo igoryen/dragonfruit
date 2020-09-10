@@ -9,6 +9,25 @@
 
 .list-body {
     margin-bottom: $m-size;
+    &__paginated {
+        display: flex;
+        flex-direction: column;
+
+        #page-numbers {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            li {
+                padding: 5px;
+                background-color: $off-white;
+                cursor: pointer;
+                &:hover {
+                    background-color: $dark-blue;
+                    color: $off-white;
+                }
+            }
+        }
+    }
     @media (min-width: $desktop-breakpoint) {
         margin-bottom: $l-size;
     }
@@ -19,7 +38,6 @@
     border-top: none;
     color: $dark-grey;
     display: flex;
-    // flex-direction: column;
     font-size: $font-size-large;
     justify-content: space-between;
     padding: 0 $s-size;
@@ -65,7 +83,6 @@
     @media (min-width: $desktop-breakpoint) {
         align-items: center;
         flex-direction: row;
-        // justify-content: space-between;
         padding: 0 $m-size;
     }
     &--message {
