@@ -9,6 +9,7 @@ const VerbformListFilters = (props) => (
                 <input
                     type="text"
                     value={props.filters.text}
+                    className="text-input"
                     onChange={ (e) => {
                         props.dispatch( setTextFilter(e.target.value) )
                     }}

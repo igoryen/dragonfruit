@@ -49,12 +49,14 @@ export default class VerbformForm extends React.Component {
                         type="text"
                         placeholder="Spanish verb-form"
                         autoFocus
+                        className="text-input"
                         value={this.state.spa}
                         onChange={this.onSpaChange}
                     />
                     <input
                         type="text"
                         placeholder="Russian verb-form"
+                        className="text-input"
                         value={this.state.rus}
                         onChange={this.onRusChange}
                     />
