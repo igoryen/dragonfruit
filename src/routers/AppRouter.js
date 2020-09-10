@@ -1,14 +1,17 @@
 import React from 'react'
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Router, Route, Switch } from 'react-router-dom';
+import createHistory from 'history/createBrowserHistory';
 import Header from '../components/Header'
 import SpanishVerbSearch from '../components/SpanishVerbSearch'
 import AddVerbformPage from '../components/AddVerbformPage';
 import EditVerbformPage from '../components/EditVerbformPage';
-import { NotFoundPage } from '../components/NotFoundPage';
+import NotFoundPage from '../components/NotFoundPage';
 import LoginPage from '../components/LoginPage'
 
+export const history = createHistory()
+
 const AppRouter = () => (
-    <BrowserRouter>
+    <Router history={history}>
         <div>
             <Header />
             <Switch>
@@ -19,7 +22,7 @@ const AppRouter = () => (
                 <Route component={NotFoundPage} />
             </Switch>
         </div>
-    </BrowserRouter>
+    </Router>
 );
 
 export default AppRouter;

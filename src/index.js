@@ -5,7 +5,7 @@ import configureStore from './store/configureStore'
 import { startSetVerbforms } from './actions/verbforms'
 import './index.scss';
 import * as serviceWorker from './serviceWorker';
-import AppRouter from './routers/AppRouter';
+import AppRouter, { history } from './routers/AppRouter';
 import { firebase } from './firebase/firebase';
 
 const store = configureStore()
@@ -16,17 +16,29 @@ const jsx = (
     </Provider>
 );
 
+let hasRendered = false;
+
+const renderApp = () => {
+    if(!hasRendered) {
+        ReactDOM.render(jsx, document.getElementById('root'))
+        hasRendered = true;
+    }
+}
+
 ReactDOM.render(<p>Loading...</p>, document.getElementById('root'))
 
-store.dispatch(startSetVerbforms()).then(() => {
-    ReactDOM.render(jsx, document.getElementById('root'))
-});
 
 firebase.auth().onAuthStateChanged((user) => {
     if (user) {
-        console.log('logged in')
+        store.dispatch(startSetVerbforms()).then(() => {
+            renderApp()
+            if(history.location.pathname === '/') {
+                history.push('/dashboard')
+            }
+        });
     } else {
-        console.log('logged out')
+        renderApp()
+        history.push('/')
     }
 })
 
