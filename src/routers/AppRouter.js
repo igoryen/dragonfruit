@@ -5,7 +5,7 @@ import SpanishVerbSearch from '../components/SpanishVerbSearch'
 import AddVerbformPage from '../components/AddVerbformPage';
 import EditVerbformPage from '../components/EditVerbformPage';
 import { NotFoundPage } from '../components/NotFoundPage';
-import { LoginPage } from '../components/LoginPage'
+import LoginPage from '../components/LoginPage'
 
 const AppRouter = () => (
     <BrowserRouter>
