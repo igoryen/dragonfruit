@@ -10,11 +10,15 @@ export class AddVerbformPage extends React.Component {
     }
     render() {
         return (
-            <div>
-                <h3>Add a Spanish verb</h3>
-                <VerbformForm
-                    onSubmit={this.onSubmit}
-                />
+            <div className="page-header">
+                <div className="content-container">
+                    <h1 className="page-header__title">Add a Spanish verb</h1>
+                </div>
+                <div className="content-container">
+                    <VerbformForm
+                        onSubmit={this.onSubmit}
+                    />
+                </div>
             </div>
         )
     }

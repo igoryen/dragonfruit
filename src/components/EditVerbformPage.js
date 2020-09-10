@@ -18,11 +18,18 @@ export class EditVerbformPage extends React.Component{
     render() {
         return (
             <div>
-                <VerbformForm
-                    verbform={this.props.verbform}
-                    onSubmit={this.onSubmit}
-                />
-                <button onClick={this.onRemove}>Remove</button>
+                <div className="page-header">
+                    <div className="content-container">
+                        <h1 className="page-header__title">Edit verbform</h1>
+                    </div>
+                </div>
+                <div className="content-container">
+                    <VerbformForm
+                        verbform={this.props.verbform}
+                        onSubmit={this.onSubmit}
+                    />
+                    <button className="button button--secondary" onClick={this.onRemove}>Remove</button>
+                </div>
             </div>
         )
     }

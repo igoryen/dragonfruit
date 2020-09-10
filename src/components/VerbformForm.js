@@ -42,27 +42,25 @@ export default class VerbformForm extends React.Component {
 
     render() {
         return (
-            <div>
-                {this.state.error && <p>{this.state.error}</p>}
-                <form onSubmit={this.onSubmit}>
-                    <input
-                        type="text"
-                        placeholder="Spanish verb-form"
-                        autoFocus
-                        className="text-input"
-                        value={this.state.spa}
-                        onChange={this.onSpaChange}
-                    />
-                    <input
-                        type="text"
-                        placeholder="Russian verb-form"
-                        className="text-input"
-                        value={this.state.rus}
-                        onChange={this.onRusChange}
-                    />
-                    <button>Add verb-form</button>
-                </form>
-            </div>
+            <form className="form" onSubmit={this.onSubmit}>
+                {this.state.error && <p className="form__error">{this.state.error}</p>}
+                <input
+                    type="text"
+                    placeholder="Spanish verb-form"
+                    autoFocus
+                    className="text-input"
+                    value={this.state.spa}
+                    onChange={this.onSpaChange}
+                />
+                <input
+                    type="text"
+                    placeholder="Russian verb-form"
+                    className="text-input"
+                    value={this.state.rus}
+                    onChange={this.onRusChange}
+                />
+                <button className="button">Add verb-form</button>
+            </form>
         )
     }
 }
