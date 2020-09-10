@@ -7,7 +7,7 @@ const VerbformList = (props) => (
     <div>
         <h1>List of verb-forms</h1>
         {
-            props.verbforms.slice(0,5).map( (verbform) => {
+            props.verbforms.slice(0,15).map( (verbform) => {
                 return <VerbformListItem key={verbform.id} {...verbform} />
             })
         }

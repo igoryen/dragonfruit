@@ -2,7 +2,7 @@
 
 const filtersReducerDefaultState = {
     text: '',
-    sortBy: 'rus'
+    sortBy: 'createdAt'
 }
 
 export default ( state = filtersReducerDefaultState, action ) => {
@@ -21,6 +21,12 @@ export default ( state = filtersReducerDefaultState, action ) => {
             return {
                 ...state,
                 sortBy: 'rus'
+            }
+        case 'SORT_BY_CREATED_AT':
+            console.log("==== sort by createdBy")
+            return {
+                ...state,
+                sortBy: 'createdAt'
             }
         default:
             return state

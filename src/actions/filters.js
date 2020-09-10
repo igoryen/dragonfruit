@@ -23,3 +23,8 @@ export const sortByRussian = () => (
     }
 )
 
+export const sortByCreatedAt = () => (
+    {
+        type: 'SORT_BY_CREATED_AT'
+    }
+)
