@@ -5,4 +5,11 @@
     font-size: $font-size-large;
     font-weight: 300;
     padding: $s-size;
+    display: inline-block;
+    line-height: 1;
+    text-decoration: none;
+
+    &--link {
+        background: none;
+    }
 }
